@@ -1,0 +1,828 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hero Khasai | Software Developer & IT Specialist</title>
+    <meta name="description" content="Portfolio of Hero Khasai, a Software Developer and IT Specialist passionate about building practical digital solutions.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --background: #080d18;
+            --surface: #101a2b;
+            --surface-light: #17243a;
+            --primary: #36d6c4;
+            --text: #f4f7fb;
+            --muted: #a5b1c2;
+            --border: rgba(255,255,255,0.09);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 85px;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1100px, 90%);
+            margin: auto;
+        }
+
+        /* NAVIGATION */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(8,13,24,0.94);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav {
+            min-height: 75px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 23px;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 88vh;
+            display: flex;
+            align-items: center;
+            padding: 90px 0;
+            background:
+                radial-gradient(circle at 80% 30%, rgba(54,214,196,0.12), transparent 30%),
+                radial-gradient(circle at 10% 80%, rgba(54,214,196,0.07), transparent 30%);
+        }
+
+        .hero-content {
+            max-width: 760px;
+        }
+
+        .intro {
+            display: inline-block;
+            color: var(--primary);
+            border: 1px solid rgba(54,214,196,0.3);
+            background: rgba(54,214,196,0.07);
+            padding: 7px 15px;
+            border-radius: 30px;
+            font-size: 13px;
+            margin-bottom: 25px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            line-height: 1.2;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 76px);
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero h2 {
+            color: var(--muted);
+            font-size: clamp(20px, 3vw, 28px);
+            font-weight: 500;
+            margin-bottom: 22px;
+        }
+
+        .hero p {
+            color: var(--muted);
+            max-width: 620px;
+            font-size: 17px;
+            margin-bottom: 32px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 23px;
+            border-radius: 7px;
+            font-weight: 700;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #061511;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(54,214,196,0.2);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* GENERAL SECTIONS */
+
+        section {
+            padding: 90px 0;
+        }
+
+        .section-heading {
+            margin-bottom: 40px;
+        }
+
+        .section-heading small {
+            color: var(--primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(30px, 4vw, 42px);
+            margin-top: 10px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            max-width: 650px;
+            margin-top: 12px;
+        }
+
+        /* ABOUT */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .about-text p {
+            color: var(--muted);
+            margin-bottom: 18px;
+        }
+
+        .info-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 28px;
+            border-radius: 12px;
+        }
+
+        .info-card h3 {
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .info-item {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .info-item strong {
+            color: var(--text);
+        }
+
+        /* SKILLS */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 25px;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .skill-icon {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .skill-card h3 {
+            font-size: 19px;
+            margin-bottom: 10px;
+        }
+
+        .skill-card p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* PROJECTS */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .project-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .project-top {
+            height: 145px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #142b3a, #17243a);
+            font-size: 45px;
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-content h3 {
+            font-size: 21px;
+            margin-bottom: 10px;
+        }
+
+        .project-content p {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tags span {
+            background: rgba(54,214,196,0.09);
+            color: var(--primary);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+
+        .project-status {
+            display: inline-block;
+            color: var(--primary);
+            font-size: 12px;
+            margin-top: 17px;
+        }
+
+        /* CONTACT */
+
+        .contact-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 45px;
+            text-align: center;
+        }
+
+        .contact-box h2 {
+            font-size: clamp(28px, 4vw, 40px);
+            margin-bottom: 15px;
+        }
+
+        .contact-box p {
+            color: var(--muted);
+            max-width: 580px;
+            margin: 0 auto 25px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .contact-links a {
+            color: var(--primary);
+            font-size: 14px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 25px 0;
+            text-align: center;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 75px;
+                left: 0;
+                width: 100%;
+                padding: 25px 5%;
+                background: var(--surface);
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .about-grid,
+            .skills-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                min-height: 75vh;
+            }
+
+            .contact-box {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#home" class="logo">HERO<span>.</span></a>
+
+                <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false">
+                    ☰
+                </button>
+
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- HERO SECTION -->
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="hero-content">
+
+                    <span class="intro">Welcome to my portfolio</span>
+
+                    <h1>Hi, I'm <span>Hero Khasai</span></h1>
+
+                    <h2>Software Developer & IT Specialist</h2>
+
+                    <p>
+                        I am passionate about technology and building practical
+                        digital solutions. I enjoy developing business systems,
+                        exploring artificial intelligence, and using technology
+                        to solve real-world problems.
+                    </p>
+
+                    <div class="buttons">
+                        <a href="#projects" class="btn btn-primary">Explore My Work</a>
+                        <a href="#contact" class="btn btn-outline">Contact Me</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about">
+            <div class="container">
+
+                <div class="section-heading">
+                    <small>Get to know me</small>
+                    <h2>About Me</h2>
+                </div>
+
+                <div class="about-grid">
+
+                    <div class="about-text">
+                        <p>
+                            My name is Ahmed Muhumed Khasai, professionally known
+                            as Hero Khasai. I am an IT professional interested in
+                            software development, information technology, and
+                            emerging digital solutions.
+                        </p>
+
+                        <p>
+                            I enjoy identifying problems and developing technology
+                            solutions that make business operations easier,
+                            improve productivity, and create value for people
+                            and organisations.
+                        </p>
+
+                        <p>
+                            My interests include web development, database
+                            management, business automation, artificial
+                            intelligence, and continuous learning.
+                        </p>
+
+                        <p>
+                            My goal is to become a skilled problem solver and
+                            build reliable software that makes a meaningful
+                            difference.
+                        </p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>Quick Information</h3>
+
+                        <div class="info-item">
+                            <strong>Name:</strong> Ahmed Muhumed Khasai
+                        </div>
+
+                        <div class="info-item">
+                            <strong>Professional Name:</strong> Hero Khasai
+                        </div>
+
+                        <div class="info-item">
+                            <strong>Field:</strong> Information Technology
+                        </div>
+
+                        <div class="info-item">
+                            <strong>Focus:</strong> Software Development
+                        </div>
+
+                        <div class="info-item">
+                            <strong>Location:</strong> Kenya
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS SECTION -->
+        <section id="skills">
+            <div class="container">
+
+                <div class="section-heading">
+                    <small>What I work with</small>
+                    <h2>Skills & Expertise</h2>
+                    <p>
+                        Technologies and areas I work with as I continue
+                        developing my skills.
+                    </p>
+                </div>
+
+                <div class="skills-grid">
+
+                    <div class="skill-card">
+                        <div class="skill-icon">💻</div>
+                        <h3>Web Development</h3>
+                        <p>
+                            Building responsive websites and web applications
+                            using HTML, CSS, JavaScript and PHP.
+                        </p>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-icon">🗄️</div>
+                        <h3>Database Management</h3>
+                        <p>
+                            Working with MySQL and database structures
+                            to organise and manage information.
+                        </p>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-icon">⚙️</div>
+                        <h3>IT Support</h3>
+                        <p>
+                            Computer troubleshooting, software installation,
+                            maintenance and technical support.
+                        </p>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-icon">🤖</div>
+                        <h3>Artificial Intelligence</h3>
+                        <p>
+                            Exploring AI tools, automation and intelligent
+                            applications that solve practical problems.
+                        </p>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-icon">🔧</div>
+                        <h3>System Development</h3>
+                        <p>
+                            Developing business-focused systems for managing
+                            operations and improving efficiency.
+                        </p>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-icon">📚</div>
+                        <h3>Continuous Learning</h3>
+                        <p>
+                            Learning new technologies, improving problem-solving
+                            skills and exploring modern software practices.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section id="projects">
+            <div class="container">
+
+                <div class="section-heading">
+                    <small>My work</small>
+                    <h2>Featured Projects</h2>
+                    <p>
+                        Some of the software projects I am building and exploring.
+                    </p>
+                </div>
+
+                <div class="projects-grid">
+
+                    <article class="project-card">
+                        <div class="project-top">🏪</div>
+
+                        <div class="project-content">
+                            <h3>Electronics Shop Management System</h3>
+
+                            <p>
+                                A business management system concept focused on
+                                tracking electronics sales, stock and shop
+                                operations.
+                            </p>
+
+                            <div class="tags">
+                                <span>PHP</span>
+                                <span>MySQL</span>
+                                <span>JavaScript</span>
+                            </div>
+
+                            <span class="project-status">In Development</span>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-top">🍽️</div>
+
+                        <div class="project-content">
+                            <h3>Restaurant Management System</h3>
+
+                            <p>
+                                A restaurant system designed to manage tables,
+                                customer orders, waiter information and billing.
+                            </p>
+
+                            <div class="tags">
+                                <span>PHP</span>
+                                <span>MySQL</span>
+                                <span>HTML</span>
+                                <span>CSS</span>
+                            </div>
+
+                            <span class="project-status">In Development</span>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-top">🤖</div>
+
+                        <div class="project-content">
+                            <h3>AI Social Media Agent</h3>
+
+                            <p>
+                                An AI-powered project exploring automated
+                                content generation and social media workflows.
+                            </p>
+
+                            <div class="tags">
+                                <span>Node.js</span>
+                                <span>AI</span>
+                                <span>JavaScript</span>
+                            </div>
+
+                            <span class="project-status">In Development</span>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-top">🌐</div>
+
+                        <div class="project-content">
+                            <h3>Personal Portfolio Website</h3>
+
+                            <p>
+                                A personal website showcasing my background,
+                                technical interests, projects and professional
+                                journey.
+                            </p>
+
+                            <div class="tags">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>JavaScript</span>
+                            </div>
+
+                            <span class="project-status">Current Project</span>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact">
+            <div class="container">
+
+                <div class="contact-box">
+                    <div class="section-heading">
+                        <small>Let's connect</small>
+                        <h2>Have a Project in Mind?</h2>
+                    </div>
+
+                    <p>
+                        I am interested in connecting with people, learning
+                        from new opportunities and working on meaningful
+                        technology projects. Feel free to reach out.
+                    </p>
+
+                    <a href="mailto:ahmadajrkasai@gmail.com"
+                       class="btn btn-primary">
+                        Send Me an Email
+                    </a>
+
+                    <div class="contact-links">
+                        <a href="mailto:ahmadajrkasai@gmail.com">Email</a>
+
+                        <a href="https://github.com/Herokasai"
+                           target="_blank"
+                           rel="noopener noreferrer">GitHub</a>
+
+                        <a href="https://wa.me/254727681138"
+                           target="_blank"
+                           rel="noopener noreferrer">WhatsApp</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>
+                © <span id="year"></span> Hero Khasai.
+                Built with passion for technology.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile navigation
+        const menuToggle = document.getElementById("menuToggle");
+        const navLinks = document.getElementById("navLinks");
+
+        menuToggle.addEventListener("click", function () {
+            const isOpen = navLinks.classList.toggle("active");
+
+            menuToggle.setAttribute("aria-expanded", isOpen);
+            menuToggle.textContent = isOpen ? "✕" : "☰";
+        });
+
+        // Close menu after clicking a navigation link
+        document.querySelectorAll(".nav-links a").forEach(function (link) {
+            link.addEventListener("click", function () {
+                navLinks.classList.remove("active");
+                menuToggle.setAttribute("aria-expanded", "false");
+                menuToggle.textContent = "☰";
+            });
+        });
+
+        // Automatic footer year
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+    </script>
+
+</body>
+</html>
